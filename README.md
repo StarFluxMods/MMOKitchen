@@ -6,4 +6,6 @@
 
 # Credits
 
-Massive shoutouts to `bedbug1226#5243` , `ava233#3113` , and `Caracal#1469` for helping test this mod!
+Massive shoutouts to `bedbug1226#5243` , `ava233#3113` , `Aragami_delp_#5775`, and `Caracal#1469` for helping test this mod!
+
+Massive thanks to `Aragami_delp_#5775` for finding the bug causing Network Players to have problems joining.
