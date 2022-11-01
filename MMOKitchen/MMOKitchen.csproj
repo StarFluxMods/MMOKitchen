@@ -70,6 +70,9 @@
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>$(PlateUpGameFolder)\PlateUp_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>$(PlateUpGameFolder)\PlateUp_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
     <Reference Include="KitchenLib">
       <HintPath>$(PlateUpGameFolder)\Mods\KitchenLib.dll</HintPath>
     </Reference>

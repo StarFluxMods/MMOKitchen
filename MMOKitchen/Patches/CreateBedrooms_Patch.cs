@@ -25,14 +25,14 @@ namespace MMOKitchen
 				new Vector3(9f, 0f, 2f),
 				new Vector3(9f, 0f, -3f),
 				new Vector3(9f, 0f, -6f),
-				new Vector3(14f, 0f, 5f),
-				new Vector3(14f, 0f, 2f),
-				new Vector3(14f, 0f, -3f),
-				new Vector3(14f, 0f, -6f),
-				new Vector3(-12f, 0f, 5f),
-				new Vector3(-12f, 0f, 2f),
-				new Vector3(-12f, 0f, -3f),
-				new Vector3(-12f, 0f, -6f)
+				new Vector3(13f, 0f, 5f),
+				new Vector3(13f, 0f, 2f),
+				new Vector3(13f, 0f, -3f),
+				new Vector3(13f, 0f, -6f),
+				new Vector3(-11f, 0f, 5f),
+				new Vector3(-11f, 0f, 2f),
+				new Vector3(-11f, 0f, -3f),
+				new Vector3(-11f, 0f, -6f)
 			};
 			for (int i = 0; i < 12; i++)
 			{
