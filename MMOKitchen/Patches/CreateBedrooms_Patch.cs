@@ -50,7 +50,6 @@ namespace MMOKitchen
                 placeSpawnMarker.Invoke(__instance, new object[] { i, array[i] + new Vector3(-1f, 0f, 0f) });
 				foreach (Entity entity2 in nativeArray)
 				{
-					//bool flag = i == base.GetComponent<CPlayer>(entity2).Index;
                     bool flag = i == ((CPlayer)getComponent.Invoke(__instance, new object[] { entity2 })).Index;
 					if (flag)
 					{

@@ -15,7 +15,6 @@ namespace MMOKitchen
         {
             PlayerManager playerManager = World.DefaultGameObjectInjectionWorld.GetExistingSystem<PlayerManager>();
             FieldInfo finfo = typeof(PlayerManager).GetField("MaxPlayers", BindingFlags.Instance | BindingFlags.Public);
-            if (finfo == null) Mod.Log("finfo is null");
             finfo.SetValue(playerManager, 12);
 
             __instance.SourceTexture = ResourceUtils.LoadTextureFromFile(Path.Combine(Application.streamingAssetsPath, "NewFromTexture.png"));

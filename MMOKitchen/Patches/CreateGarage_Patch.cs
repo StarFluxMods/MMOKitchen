@@ -23,7 +23,6 @@ namespace MMOKitchen
 			garageDecorations.SetActive(false);
             create.Invoke(__instance, new object[]{GameData.Main.Get<Appliance>(AssetReference.GarageDecorations), new Vector3(-8f, 0f, -2f), Vector3.forward});
 
-			//Mod.Log(GameData.Main.Get<Appliance>(AssetReference.GarageDecorations).Prefab.name);
 			Entity entity = default(Entity);
             entity = (Entity)create.Invoke(__instance, new object[]{GameData.Main.Get<Appliance>(AssetReference.LoadoutPedestal), new Vector3(-8.5f, 0f, -4f), Vector3.right});
 			EntityUtils.GetEntityManager().AddComponent<CItemPedestal>(entity);
