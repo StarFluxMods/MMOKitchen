@@ -8,14 +8,14 @@ using MelonLoader;
 #endif
 
 #if MelonLoader
-[assembly: MelonInfo(typeof(MMOKitchen.Mod), "MMO Kitchen", "0.1.3", "StarFluxGames")]
+[assembly: MelonInfo(typeof(MMOKitchen.Mod), "MMO Kitchen", "0.1.2", "StarFluxGames")]
 [assembly: MelonGame("It's Happening", "PlateUp")]
 #endif
 namespace MMOKitchen
 {	
     #if BepInEx
     [BepInProcess("PlateUp.exe")]
-	[BepInPlugin("starfluxgames.mmokitchen", "MMO Kitchen", "0.1.3")]
+	[BepInPlugin("starfluxgames.mmokitchen", "MMO Kitchen", "0.1.2")]
 	#endif
     public class Mod : BaseMod
     {
