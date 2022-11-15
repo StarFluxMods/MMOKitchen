@@ -30,6 +30,9 @@
     <Reference Include="KitchenMode">
       <HintPath>$(PlateUpGameFolder)\PlateUp_Data\Managed\KitchenMode.dll</HintPath>
     </Reference>
+    <Reference Include="Discord">
+      <HintPath>$(PlateUpGameFolder)\PlateUp_Data\Managed\Discord.dll</HintPath>
+    </Reference>
     <Reference Include="MelonLoader">
       <HintPath>$(PlateUpGameFolder)\MelonLoader\MelonLoader.dll</HintPath>
     </Reference>

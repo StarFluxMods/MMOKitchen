@@ -27,6 +27,7 @@ namespace MMOKitchen
             entity = (Entity)create.Invoke(__instance, new object[]{GameData.Main.Get<Appliance>(AssetReference.LoadoutPedestal), new Vector3(-8.5f, 0f, -4f), Vector3.right});
 			EntityUtils.GetEntityManager().AddComponent<CItemPedestal>(entity);
             entity = (Entity)create.Invoke(__instance, new object[]{GameData.Main.Get<Appliance>(AssetReference.LoadoutPedestal), new Vector3(-9.5f, 0f, -4f), Vector3.right});
+			EntityUtils.GetEntityManager().AddComponent<CItemPedestal>(entity);
             bool isEmpty = ((EntityQuery)crates.GetValue(__instance)).IsEmpty;
 			if (!isEmpty)
 			{
