@@ -76,8 +76,8 @@
     <Reference Include="Kitchen.Networking">
       <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="KitchenLib">
-      <HintPath>..\..\..\..\Libraries\Mods\KitchenLib.dll</HintPath>
+    <Reference Include="KitchenLib-BepInEx">
+      <HintPath>..\..\..\..\Libraries\KitchenLib\KitchenLib-BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="KitchenMode">
       <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\KitchenMode.dll</HintPath>
