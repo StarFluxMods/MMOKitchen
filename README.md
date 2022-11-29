@@ -9,7 +9,7 @@ MMOKitchen allows up to 12 more players to join your game!
 ## Requirements
 
 - MelonLoader >= 0.5.7 or BepInEx >= 5.4.21
-- KitchenLib >= 0.2.0
+- KitchenLib >= 0.2.2
 
 ## Installation
 
