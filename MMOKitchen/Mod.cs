@@ -1,29 +1,30 @@
 ﻿using KitchenLib;
 using System.Reflection;
-#if BepInEx
+#if BEPINEX
 using BepInEx;
 #endif
-#if MelonLoader
+#if MELONLOADER
 using MelonLoader;
 #endif
 
-#if MelonLoader
-[assembly: MelonInfo(typeof(MMOKitchen.Mod), "MMO Kitchen", "0.1.2", "StarFluxGames")]
+#if MELONLOADER
+[assembly: MelonInfo(typeof(MMOKitchen.Mod), "MMO Kitchen", "0.1.4", "StarFluxGames")]
 [assembly: MelonGame("It's Happening", "PlateUp")]
 #endif
 namespace MMOKitchen
-{	
-    #if BepInEx
-    [BepInProcess("PlateUp.exe")]
-	[BepInPlugin("starfluxgames.mmokitchen", "MMO Kitchen", "0.1.2")]
-	#endif
-    public class Mod : BaseMod
-    {
-		#if MelonLoader
-		public Mod() : base("mmokitchen", "1.1.0") { }
-		#endif
-		#if BepInEx
-		public Mod() : base("1.1.0", Assembly.GetExecutingAssembly()) {}
-		#endif
-    }
+{
+#if BEPINEX
+	[BepInProcess("PlateUp.exe")]
+	[BepInPlugin("starfluxgames.mmokitchen", "MMO Kitchen", "0.1.4")]
+	[BepInDependency(KitchenLib.Mod.GUID)]
+#endif
+	public class Mod : BaseMod
+	{
+#if MELONLOADER
+		public Mod() : base("mmokitchen", "1.1.1") { }
+#endif
+#if BEPINEX
+		public Mod() : base("1.1.1", Assembly.GetExecutingAssembly()) { }
+#endif
+	}
 }
