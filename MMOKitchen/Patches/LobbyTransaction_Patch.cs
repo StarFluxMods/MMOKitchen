@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 
 namespace MMOKitchen
 {
+	
 	[HarmonyPatch(typeof(DiscordPlatform))]
 	[HarmonyPatch("CreateNewLobby")]
 	public static class DiscordPlatform_Patch
@@ -20,4 +21,5 @@ namespace MMOKitchen
 			return codes;
 		}
 	}
+	
 }

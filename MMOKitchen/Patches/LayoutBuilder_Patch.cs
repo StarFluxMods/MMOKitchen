@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MMOKitchen
 {
+	
     [HarmonyPatch(typeof(LayoutBuilder), "BuildWallBetween")]
     public class LayoutBuilder_Patch
     {
@@ -17,4 +18,5 @@ namespace MMOKitchen
             return true;
         }
     }
+	
 }

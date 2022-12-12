@@ -9,7 +9,8 @@ using KitchenData;
 
 namespace MMOKitchen
 {
-    [HarmonyPatch(typeof(CreateGarage), "OnUpdate")]
+    
+	[HarmonyPatch(typeof(CreateGarage), "OnUpdate")]
     public class CreateGarage_Patch
     {
         public static bool Prefix(CreateGarage __instance)
@@ -56,4 +57,5 @@ namespace MMOKitchen
             return false;
         }
     }
+	
 }

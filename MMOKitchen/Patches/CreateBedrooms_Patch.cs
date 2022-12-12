@@ -9,6 +9,7 @@ using Unity.Collections;
 
 namespace MMOKitchen
 {
+	
     [HarmonyPatch(typeof(CreateBedrooms), "OnUpdate")]
     public class CreateBedrooms_Patch
     {
@@ -62,4 +63,5 @@ namespace MMOKitchen
             return false;
         }
     }
+	
 }
