@@ -64,6 +64,9 @@
     <Reference Include="KitchenMods">
       <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\KitchenMods.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Sirenix.Serialization.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Entities">
       <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Unity.Entities.dll</HintPath>
     </Reference>
