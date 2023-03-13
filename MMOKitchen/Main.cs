@@ -1,90 +1,63 @@
-﻿using KitchenLib;
-using System.Reflection;
-using KitchenLib.Utils;
-using UnityEngine;
-using System;
-using Kitchen;
+﻿using Kitchen;
+using KitchenLib;
 using KitchenLib.Event;
-using MMOKitchen.Menus;
-
-#if BEPINEX
-using BepInEx;
-#endif
-#if WORKSHOP
+using KitchenLib.Preferences;
 using KitchenMods;
-#endif
+using MMOKitchenReborn.Menus;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using UnityEngine;
 
-namespace MMOKitchen
+namespace MMOKitchenReborn
 {
-#if BEPINEX
-	[BepInProcess("PlateUp.exe")]
-	[BepInPlugin(MOD_ID, MOD_NAME, MOD_VERSION)]
-#endif
 	public class Main : BaseMod
 	{
 		public const string MOD_ID = "mmokitchen";
 		public const string MOD_NAME = "MMO Kitchen";
 		public const string MOD_AUTHOR = "StarFluxGames";
-		public const string MOD_VERSION = "0.1.6";
-		public const string MOD_COMPATIBLE_VERSIONS = "1.1.2";
+		public const string MOD_VERSION = "0.1.7";
+		public const string MOD_COMPATIBLE_VERSIONS = "=<1.1.4";
 
-		public const string CONSENT_REQUIRED_ID = "requiredConsent";
-
-		public int RequiredConsentPercentage;
+		public static PreferenceManager manager;
 		public Main() : base(MOD_ID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_COMPATIBLE_VERSIONS, Assembly.GetExecutingAssembly()) { }
 
-#if BEPINEX
-		protected override void OnInitialise()
-#endif
-#if WORKSHOP
 		protected override void OnPostActivate(Mod mod)
-#endif
 		{
-			KitchenLib.IntPreference requiredConsent = PreferenceUtils.Register<KitchenLib.IntPreference>(MOD_ID, CONSENT_REQUIRED_ID, "Required Consent Percentage");
-			requiredConsent.Value = 50;
-			PreferenceUtils.Load();
-			RequiredConsentPercentage = PreferenceUtils.Get<KitchenLib.IntPreference>(MOD_ID, CONSENT_REQUIRED_ID).Value;
-			SetupPreferences();
-		}
+			manager = new PreferenceManager(MOD_ID);
+			manager.RegisterPreference(new PreferenceInt("requiredConsentPercentage", 100));
+			manager.Load();
 
-		public static Texture2D LoadImage(string base64)
-		{
-			byte[] bytes = Convert.FromBase64String(base64);
+			ModsPreferencesMenu<PauseMenuAction>.RegisterMenu("MMO Kitchen", typeof(PreferenceMenu<PauseMenuAction>), typeof(PauseMenuAction));
 
-			Texture2D image = ResourceUtils.LoadTextureRaw(bytes);
-
-			return image;
-		}
-
-		private void SetupPreferences()
-		{
-			Events.PreferenceMenu_MainMenu_SetupEvent += (s, args) =>
+			Events.PreferenceMenu_PauseMenu_CreateSubmenusEvent += (s, args) =>
 			{
-				Type type = args.instance.GetType().GetGenericArguments()[0];
-				args.mInfo.Invoke(args.instance, new object[] { MOD_NAME, typeof(MMOKitchenPreferences<>).MakeGenericType(type), false });
+				args.Menus.Add(typeof(PreferenceMenu<PauseMenuAction>), new PreferenceMenu<PauseMenuAction>(args.Container, args.Module_list));
 			};
+
+			ModsPreferencesMenu<MainMenuAction>.RegisterMenu("MMO Kitchen", typeof(PreferenceMenu<MainMenuAction>), typeof(MainMenuAction));
 
 			Events.PreferenceMenu_MainMenu_CreateSubmenusEvent += (s, args) =>
 			{
-				args.Menus.Add(typeof(MMOKitchenPreferences<MainMenuAction>), new MMOKitchenPreferences<MainMenuAction>(args.Container, args.Module_list));
+				args.Menus.Add(typeof(PreferenceMenu<MainMenuAction>), new PreferenceMenu<MainMenuAction>(args.Container, args.Module_list));
 			};
+		}
 
-			//Setting Up For Pause Menu
-			Events.PreferenceMenu_PauseMenu_SetupEvent += (s, args) =>
-			{
-				Type type = args.instance.GetType().GetGenericArguments()[0];
-				args.mInfo.Invoke(args.instance, new object[] { MOD_NAME, typeof(MMOKitchenPreferences<>).MakeGenericType(type), false });
-			};
-			Events.PreferenceMenu_PauseMenu_CreateSubmenusEvent += (s, args) =>
-			{
-				args.Menus.Add(typeof(MMOKitchenPreferences<PauseMenuAction>), new MMOKitchenPreferences<PauseMenuAction>(args.Container, args.Module_list));
-			};
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void LogInfo(string message)
+		{
+			Debug.Log($"[{MOD_NAME}] " + message);
+		}
 
-			Events.PreferencesSaveEvent += (s, args) =>
-			{
-				int consentPercentage = PreferenceUtils.Get<KitchenLib.IntPreference>(MOD_ID, CONSENT_REQUIRED_ID).Value;
-				RequiredConsentPercentage = consentPercentage;
-			};
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void LogWarning(string message)
+		{
+			Debug.LogWarning($"[{MOD_NAME}] " + message);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void LogError(string message)
+		{
+			Debug.LogError($"[{MOD_NAME}] " + message);
 		}
 	}
 }

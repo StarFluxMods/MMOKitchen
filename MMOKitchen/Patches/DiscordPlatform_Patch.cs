@@ -1,14 +1,15 @@
-using HarmonyLib;
-using Discord;
+﻿using HarmonyLib;
 using Kitchen.NetworkSupport;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace MMOKitchen
+namespace MMOKitchenReborn.Patches
 {
-	
-	[HarmonyPatch(typeof(DiscordPlatform))]
-	[HarmonyPatch("CreateNewLobby")]
+	/*
+	 * This patch is used to change how many players can join the lobby using Discord.
+	 */
+
+	[HarmonyPatch(typeof(DiscordPlatform), "CreateNewLobby")]
 	public static class DiscordPlatform_Patch
 	{
 		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -21,5 +22,4 @@ namespace MMOKitchen
 			return codes;
 		}
 	}
-	
 }

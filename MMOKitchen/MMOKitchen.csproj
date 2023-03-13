@@ -1,81 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <Configurations>BepInEx;Workshop</Configurations>
-    <AssemblyName>$(MSBuildProjectName)-$(Configuration)</AssemblyName>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-	<Reference Include="0Harmony">
-	  <HintPath>..\..\..\..\Libraries\0Harmony.dll</HintPath>
-	</Reference>
-	<Reference Include="Discord">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Discord.dll</HintPath>
-	</Reference>
-	<Reference Include="Facepunch.Steamworks.Win64">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.Common">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.Common.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.FranchiseBuilderMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.FranchiseBuilderMode.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.FranchiseMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.FranchiseMode.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.GameData">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.GameData.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.Layouts">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.Layouts.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.Networking">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.Networking.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.Persistence">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.Persistence.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.PostgameMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.PostgameMode.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.ResearchMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.ResearchMode.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.RestaurantMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.RestaurantMode.dll</HintPath>
-	</Reference>
-	<Reference Include="Kitchen.TutorialMode">
-	  <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Kitchen.TutorialMode.dll</HintPath>
-	</Reference>
-	<Reference Include="KitchenLib-Workshop" Condition="'$(Configuration)'=='Workshop'">
-	 <HintPath>..\..\..\..\Libraries\KitchenLib\KitchenLib-Workshop.dll</HintPath>
-	</Reference>
-	<Reference Include="KitchenLib-BepInEx" Condition="'$(Configuration)'=='BepInEx'">
-	 <HintPath>..\..\..\..\Libraries\KitchenLib\KitchenLib-BepInEx.dll</HintPath>
-	</Reference>
-    <Reference Include="BepInEx">
-      <HintPath>..\..\..\..\Libraries\BepInEx\core\BepInEx.dll</HintPath>
-    </Reference>
-    <Reference Include="KitchenMode">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\KitchenMode.dll</HintPath>
-    </Reference>
-    <Reference Include="KitchenMods">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\KitchenMods.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Sirenix.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\Unity.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\Libraries\PlateUp_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.6.16" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Discord">
+	    <HintPath>H:\SteamLibrary\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Discord.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Facepunch.Steamworks.Win64">
+	    <HintPath>H:\SteamLibrary\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
+	  </Reference>
+	  <Reference Include="KitchenLib-Workshop">
+	    <HintPath>..\..\..\..\Libraries\KitchenLib\KitchenLib-Workshop.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 </Project>
