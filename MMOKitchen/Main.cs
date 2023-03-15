@@ -15,8 +15,8 @@ namespace MMOKitchenReborn
 		public const string MOD_ID = "mmokitchen";
 		public const string MOD_NAME = "MMO Kitchen";
 		public const string MOD_AUTHOR = "StarFluxGames";
-		public const string MOD_VERSION = "0.1.7";
-		public const string MOD_COMPATIBLE_VERSIONS = "=<1.1.4";
+		public const string MOD_VERSION = "0.1.8";
+		public const string MOD_COMPATIBLE_VERSIONS = ">=1.1.4";
 
 		public static PreferenceManager manager;
 		public Main() : base(MOD_ID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_COMPATIBLE_VERSIONS, Assembly.GetExecutingAssembly()) { }
