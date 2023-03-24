@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kitchen;
+using KitchenLib.Preferences;
 
 namespace MMOKitchenReborn.Patches
 {
@@ -10,24 +11,27 @@ namespace MMOKitchenReborn.Patches
 		[HarmonyPostfix]
 		static void CustomerPlayersRateModifier_Postfix(ref float __result, int player_count)
 		{
-			if (player_count > 4)
-				__result = 1 + (player_count * 0.25f);
+			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
+				if (player_count > 4)
+					__result = 1 + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
 		}
 
 		[HarmonyPatch("FireSpreadModifier")]
 		[HarmonyPostfix]
 		static void FireSpreadModifier_Postfix(ref float __result, int player_count)
 		{
-			if (player_count > 4)
-				__result = 0.75f + (player_count * 0.25f);
+			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
+				if (player_count > 4)
+					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
 		}
 
 		[HarmonyPatch("PatiencePlayerCountModifier")]
 		[HarmonyPostfix]
 		static void PatiencePlayerCountModifier_Postfix(ref float __result, int player_count)
 		{
-			if (player_count > 4)
-				__result = 0.75f + (player_count * 0.25f);
+			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
+				if (player_count > 4)
+					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace MMOKitchenReborn
 		public const string MOD_ID = "mmokitchen";
 		public const string MOD_NAME = "MMO Kitchen";
 		public const string MOD_AUTHOR = "StarFluxGames";
-		public const string MOD_VERSION = "0.1.8";
+		public const string MOD_VERSION = "0.1.9";
 		public const string MOD_COMPATIBLE_VERSIONS = ">=1.1.4";
 
 		public static PreferenceManager manager;
@@ -25,6 +25,8 @@ namespace MMOKitchenReborn
 		{
 			manager = new PreferenceManager(MOD_ID);
 			manager.RegisterPreference(new PreferenceInt("requiredConsentPercentage", 100));
+			manager.RegisterPreference(new PreferenceBool("scaleAbove4Players", false));
+			manager.RegisterPreference(new PreferenceFloat("scaleAbove4PlayersMultiplier", 0.1f));
 			manager.Load();
 
 			ModsPreferencesMenu<PauseMenuAction>.RegisterMenu("MMO Kitchen", typeof(PreferenceMenu<PauseMenuAction>), typeof(PauseMenuAction));
