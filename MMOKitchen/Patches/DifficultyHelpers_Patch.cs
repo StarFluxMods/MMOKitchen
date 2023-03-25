@@ -13,7 +13,7 @@ namespace MMOKitchenReborn.Patches
 		{
 			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
 				if (player_count > 4)
-					__result = 1 + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
+					__result = 1 + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersMultiplier").Value);
 		}
 
 		[HarmonyPatch("FireSpreadModifier")]
@@ -22,7 +22,7 @@ namespace MMOKitchenReborn.Patches
 		{
 			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
 				if (player_count > 4)
-					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
+					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersMultiplier").Value);
 		}
 
 		[HarmonyPatch("PatiencePlayerCountModifier")]
@@ -31,7 +31,7 @@ namespace MMOKitchenReborn.Patches
 		{
 			if (Main.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Value)
 				if (player_count > 4)
-					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersPercentage").Value);
+					__result = 0.75f + (player_count * Main.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersMultiplier").Value);
 		}
 	}
 }
