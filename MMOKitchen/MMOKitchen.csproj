@@ -6,19 +6,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.6.16" />
+		<PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.10.21" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Reference Include="Discord">
-	    <HintPath>H:\SteamLibrary\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Discord.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Facepunch.Steamworks.Win64">
-	    <HintPath>H:\SteamLibrary\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
-	  </Reference>
-	  <Reference Include="KitchenLib-Workshop">
-	    <HintPath>..\..\..\..\Libraries\KitchenLib\KitchenLib-Workshop.dll</HintPath>
-	  </Reference>
-	</ItemGroup>
-
 </Project>
