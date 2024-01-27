@@ -199,6 +199,10 @@ PublishScripts/
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
+# except Unity related
+!**/[Pp]ackages/packages-lock.json
+!**/[Pp]ackages/manifest.json
+
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
@@ -421,16 +425,3 @@ FodyWeavers.xsd
 **/.idea/**/*.iml
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
-.idea/
-
-*.suo
-*.user
-.vs/
-[Bb]in/
-[Oo]bj/
-_UpgradeReport_Files/
-[Pp]ackages/
-
-Thumbs.db
-Desktop.ini
-.DS_Store
