@@ -8,17 +8,11 @@ MMOKitchen allows up to 12 more players to join your game!
 
 ## Requirements
 
-- MelonLoader >= 0.5.7 or BepInEx >= 5.4.21
 - KitchenLib >= 0.3.0
 
 ## Installation
 
-- To install MMOKitchen, you need to extract `MMOKitchen.zip` directly into your `/PlateUp` directory.
-- Or you can install from our [Package Manager](https://github.com/KitchenMods/PlateUp-Package-Manager) repo `http://plateup.starfluxgames.com/Repo` `http://plateup.starfluxgames.com/BepInEx`
-
-## Screenshots
-
-![unknown](https://user-images.githubusercontent.com/20834597/199092219-30ad55aa-985e-4f92-a4a5-bdd9ff9d1a8d.png)
+- Subscribe on the Steam Workshop
 
 ## Credits
 
