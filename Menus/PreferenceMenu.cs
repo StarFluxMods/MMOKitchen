@@ -25,6 +25,7 @@ namespace MMOKitchen.Menus
             requiredPercentage.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("requiredConsentPercentage").Set(result);
+                Mod.manager.Save();
             };
 
             New<SpacerElement>(true);
@@ -34,6 +35,7 @@ namespace MMOKitchen.Menus
             scaleEnabled.OnChanged += delegate (object _, bool result)
             {
                 Mod.manager.GetPreference<PreferenceBool>("scaleAbove4Players").Set(result);
+                Mod.manager.Save();
             };
 
             AddLabel("Scale Multiplier");
@@ -41,6 +43,7 @@ namespace MMOKitchen.Menus
             scaleMultiplier.OnChanged += delegate (object _, float result)
             {
                 Mod.manager.GetPreference<PreferenceFloat>("scaleAbove4PlayersMultiplier").Set(result);
+                Mod.manager.Save();
             };
 
             New<SpacerElement>(true);
@@ -48,7 +51,6 @@ namespace MMOKitchen.Menus
 
             AddButton(base.Localisation["MENU_BACK_SETTINGS"], delegate (int i)
             {
-                Mod.manager.Save();
                 this.RequestPreviousMenu();
             }, 0, 1f, 0.2f);
         }
