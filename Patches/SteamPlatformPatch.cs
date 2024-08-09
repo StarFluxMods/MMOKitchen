@@ -1,42 +1,33 @@
 ﻿using HarmonyLib;
 using Kitchen.NetworkSupport;
-using Steamworks;
-using Steamworks.Data;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
-using System.Threading.Tasks;
+using System.Reflection.Emit;
 
 namespace MMOKitchen.Patches
 {
     /*
      * This patch is used to change how many players can join the lobby using Steam.
      */
-    
-    [HarmonyPatch(typeof(SteamPlatform), "CreateNewLobby")]
+    [HarmonyPatch(typeof(SteamPlatform))]
     public class SteamPlatformPatch
-    {
-        public static bool Prefix(SteamPlatform __instance, Action<bool, Lobby> callback)
+    { 
+        private static MethodBase TargetMethod()
         {
-            if (__instance.IsReady)
-            {
-                SteamMatchmaking.CreateLobbyAsync(Mod.MaxPlayers).ContinueWith(delegate (Task<Lobby?> task)
-                {
-                    if (task.IsCompleted && task.Result != null)
-                    {
-                        Lobby valueOrDefault = task.Result.GetValueOrDefault();
-                        __instance.CurrentInviteLobby = valueOrDefault;
-
-                        MethodInfo performSetPermissions = AccessTools.Method(typeof(SteamPlatform), "PerformSetPermissions");
-                        performSetPermissions.Invoke(__instance, new object[] { __instance.Permissions });
-                        callback(true, valueOrDefault);
-                    }
-                    else
-                    {
-                        callback(false, default(Lobby));
-                    }
-                });
-            }
-            return false;
+            Type type = AccessTools.FirstInner(typeof(SteamPlatform), t => t.Name.Contains("<CreateNewLobby>d__26"));
+            return AccessTools.FirstMethod(type, method => method.Name.Contains("MoveNext"));
+        }
+        [HarmonyTranspiler]
+        private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            CodeMatcher matcher = new(instructions);
+            
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4_2), new CodeMatch(OpCodes.Bne_Un), new CodeMatch(OpCodes.Ldc_I4_4))
+                .Advance(2)
+                .Set(OpCodes.Ldc_I4, Mod.MaxPlayers); 
+				
+            return matcher.InstructionEnumeration();
         }
     }
 }

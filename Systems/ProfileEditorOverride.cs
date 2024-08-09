@@ -17,6 +17,6 @@ namespace MMOKitchen.Systems
             SetComponent(data.Target, Editor);
         }
 
-        private CTriggerProfileEditor Editor;
+        private CTriggerPlayerSpecificUI Editor;
     }
 }

@@ -6,6 +6,7 @@ using Kitchen;
 using KitchenLib.Event;
 using KitchenLib.Preferences;
 using MMOKitchen.Menus;
+using KitchenLogger = KitchenLib.Logging.KitchenLogger;
 
 namespace MMOKitchen
 {
@@ -13,9 +14,9 @@ namespace MMOKitchen
     {
         public const string MOD_GUID = "com.starfluxgames.mmokitchen";
         public const string MOD_NAME = "MMO Kitchen";
-        public const string MOD_VERSION = "0.3.0";
+        public const string MOD_VERSION = "0.3.1";
         public const string MOD_AUTHOR = "StarFluxGames";
-        public const string MOD_GAMEVERSION = ">=1.1.9";
+        public const string MOD_GAMEVERSION = ">=1.2.0";
 
         public static KitchenLogger Logger;
         public static PreferenceManager manager;
@@ -41,19 +42,16 @@ namespace MMOKitchen
             manager.RegisterPreference(new PreferenceBool("scaleAbove4Players", false));
             manager.RegisterPreference(new PreferenceFloat("scaleAbove4PlayersMultiplier", 0.1f));
             manager.Load();
-
-            ModsPreferencesMenu<PauseMenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<PauseMenuAction>), typeof(PauseMenuAction));
-
-            Events.PreferenceMenu_PauseMenu_CreateSubmenusEvent += (s, args) =>
+            
+            ModsPreferencesMenu<MenuAction>.RegisterMenu("MMO Kitchen", typeof(PreferenceMenu<MenuAction>), typeof(MenuAction));
+            ModsPreferencesMenu<MenuAction>.RegisterMenu("MMO Kitchen", typeof(PreferenceMenu<MenuAction>), typeof(MenuAction));
+            Events.MainMenuView_SetupMenusEvent += (s, args) =>
             {
-                args.Menus.Add(typeof(PreferenceMenu<PauseMenuAction>), new PreferenceMenu<PauseMenuAction>(args.Container, args.Module_list));
+                args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<MenuAction>), new PreferenceMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
             };
-
-            ModsPreferencesMenu<MainMenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<MainMenuAction>), typeof(MainMenuAction));
-
-            Events.PreferenceMenu_MainMenu_CreateSubmenusEvent += (s, args) =>
+            Events.PlayerPauseView_SetupMenusEvent += (s, args) =>
             {
-                args.Menus.Add(typeof(PreferenceMenu<MainMenuAction>), new PreferenceMenu<MainMenuAction>(args.Container, args.Module_list));
+                args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<MenuAction>), new PreferenceMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
             };
         }
     }
