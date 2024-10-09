@@ -1,9 +1,8 @@
 ﻿using Kitchen;
-using KitchenMods;
 
 namespace MMOKitchen.Systems
 {
-    public class ProfileEditorOverride : InteractionSystem, IModSystem
+    public class ProfileEditorOverride : InteractionSystem
     {
         protected override bool IsPossible(ref InteractionData data)
         {
