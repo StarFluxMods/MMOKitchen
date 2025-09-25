@@ -13,7 +13,7 @@ namespace MMOKitchen
     {
         public const string MOD_GUID = "com.starfluxgames.mmokitchen";
         public const string MOD_NAME = "MMO Kitchen";
-        public const string MOD_VERSION = "0.3.2";
+        public const string MOD_VERSION = "0.3.3";
         public const string MOD_AUTHOR = "StarFluxGames";
         public const string MOD_GAMEVERSION = ">=1.2.0";
 
